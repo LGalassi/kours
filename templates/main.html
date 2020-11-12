@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block main %}
+    <div class="mainpage">
+        <h3 class="bold">Welcome to</h3>
+        <img src="/static/logo-dark.png" alt="Kours Logo" loading="lazy">
+    </div>
+
+    <br>
+    <h5 class="mainpage">Your platform to organize the many courses you're trying to finish.</h5>
+    <br>
+
+    <div class="mainpage">
+        <a class="btn btn-dark home-btns" href="/login" type="submit">I'm already registered</a>
+        <a class="btn btn-dark home-btns" href="/register" type="submit">I'm new here </a>
+    </div>
+{% endblock %}

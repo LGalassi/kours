@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remember password
+{% endblock %}
+
+{% block main %}
+    <h3 class="bold">Remember password</h3>
+    <br>
+    <form class="center-form" action="/forgot" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control form-controls" name="username" placeholder="Your cool username" type="text">
+        </div>
+        <button class="btn btn-dark" type="submit">See password reminder</button>
+    </form>
+{% endblock %}

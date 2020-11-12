@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+    	<div class="form-row">
+    		<div class="form-group col-md-4">
+    			<label for="input-first-name">Username</label>
+    			<input type="text" class="form-control" id="input-first-name" placeholder="worldsbestboss" name="username">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="input-first-name">First Name</label>
+    			<input type="text" class="form-control" id="input-first-name" placeholder="Michael" name="first">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="input-last-name">Last Name</label>
+    			<input type="text" class="form-control" id="input-last-name" placeholder="Scott" name="last">
+    		</div>
+    	</div>
+    	<div class="form-row">
+    		<div class="form-group col-md-4">
+    			<label for="country">Country</label>
+    			<input type="text" class="form-control" id="country" placeholder="United States" name="country">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="state">State</label>
+    			<input type="text" class="form-control" id="state" placeholder="Pennsylvania" name="state">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="city">City</label>
+    			<input type="text" class="form-control" id="city" placeholder="Scranton" name="city">
+    		</div>
+    	</div>
+    	<div class="form-row">
+    		<div class="form-group col-md-4">
+    			<label for="password">Password</label>
+    			<input type="password" class="form-control" id="password" name="password">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="confirm-password">Confirm Password</label>
+    			<input type="password" class="form-control" id="confirm-password" name="confirm">
+    		</div>
+    		<div class="form-group col-md-4">
+    			<label for="password-reminder">Password Reminder</label>
+    			<input type="text" class="form-control" id="password-reminder" placeholder="TODO" name="reminder">
+    		</div>
+    	</div>
+    	<div class="center-form">
+        	<button type="submit" class="btn btn-dark">Sign in</button>
+        </div>
+    </form>
+{% endblock %}

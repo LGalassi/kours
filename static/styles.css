@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'bungee_hairlineregular';
+    src: url('/static/bungeehairline-regular-webfont.woff2') format('woff2'),
+         url('/static/bungeehairline-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('montserrat-regular-webfont.woff2') format('woff2'),
+         url('montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.bungee-hairline
+{
+    font-family: 'bungee_hairlineregular';
+}
+
+.mainpage
+{
+    text-align: center;
+}
+
+.home-btns
+{
+    display: inline-block;
+}
+
+body
+{
+    background-color: lightgray;
+    font-family: 'montserratregular';
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.center-form
+{
+    text-align: center;
+}
+
+main .form-controls
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+h5
+{
+    text-align: center;
+}
+
+h3
+{
+    text-align: center;
+}
+
+.error
+{
+    text-align: center;
+}
+
+.equal-cards
+{
+    height: 5cm;
+    color: lightgray;
+}
+
+#todo
+{
+    background-color: red;
+}
+
+#doing
+{
+    background-color: yellow;
+}
+
+#done
+{
+    background-color: green;
+}
+
+a.card-links:link {
+  color: lightgray;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a.card-links:visited
+{
+  color: lightgray;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a.card-links:hover
+{
+  color: gray;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a.card-links:active
+{
+  color: lightgray;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.center-svg
+{
+    display: flex;
+    justify-content: center;
+}

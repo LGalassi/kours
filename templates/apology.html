@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error {{ top }}
+{% endblock %}
+
+{% block main %}
+    <center>
+        <img class="error" alt=" Error {{ top }}" class="border" src="http://memegen.link/dwight/fact/{{ bottom | urlencode }}.jpg" title="Error {{ top }}">
+    </center>
+{% endblock %}

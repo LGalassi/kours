@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Courses
+{% endblock %}
+
+{% block main %}
+    <h3 class="bold">{{ school[0]["name"] }} courses</h3>
+    <br>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form class="center-form" action="/add-course/{{ school[0]["id"] }}" method="post">
+                <div class="input-group">
+                    <input autocomplete="off" class="form-control form-controls" name="new-course" placeholder="New course" type="text" style="border-width: 0px" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-dark btn-sm" type="submit">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="lightgray" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; border-width: 0px">
+                                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+    <br>
+
+    <div class="card-deck">
+        <div class="card bg-dark" style="border-style: solid; border-color: #8914ba; border-width: 3px; color: lightgray">
+        	<table class="table table-hover table-dark">
+                <h5 class="card-header bold" style="color: #8914ba">TO DO</h5>
+                <tbody>
+                    {% if todo|length > 0 %}
+                        {% for row in todo %}
+                            <tr>
+                                <td style="width: 10%"></td>
+                                <td style="width: 70%">
+                                    {{ row["name"] }}
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/delete-course/{{ school[0]["id"] }}/{{ row["id"] }}" style="text-decoration: none">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="#8914ba" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/change-status/{{ school[0]["id"] }}/doing/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="#8914ba" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td style="color: gray; text-align: center">
+                                Nothing yet!
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+        	</table>
+        </div>
+    	<div class="card bg-dark" style="border-style: solid; border-color: #796ac3; border-width: 3px; color: lightgray">
+    	    <table class="table table-hover table-dark">
+                <h5 class="card-header bold" style="color: #796ac3">DOING</h5>
+                <tbody>
+                    {% if doing|length > 0 %}
+                        {% for row in doing %}
+                            <tr>
+                                <td style="width: 10%">
+                                    <a href="/change-status/{{ school[0]["id"] }}/todo/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="#796ac3" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td style="width: 70%">
+                                    {{ row["name"] }}
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/delete-course/{{ school[0]["id"] }}/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="#796ac3" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/change-status/{{ school[0]["id"] }}/done/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="#796ac3" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td style="color: gray; text-align: center">
+                                Nothing yet!
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+        	</table>
+    	</div>
+    	<div class="card bg-dark" style="border-style: solid; border-color: #8dc9fd; border-width: 3px; color: lightgray">
+    	    <table class="table table-hover table-dark">
+                <h5 class="card-header bold" style="color: #8dc9fd">DONE</h5>
+                <tbody>
+                    {% if done|length > 0 %}
+                        {% for row in done %}
+                            <tr>
+                                <td style="width: 10%">
+                                    <a href="/change-status/{{ school[0]["id"] }}/doing/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="#8dc9fd" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td style="width: 70%">
+                                    {{ row["name"] }}
+                                </td>
+                                <td style="width: 10%">
+                                    <a href="/delete-course/{{ school[0]["id"] }}/{{ row["id"] }}" style="text-decoration: none">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="#8dc9fd" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td style="width: 10%"></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td style="color: gray; text-align: center">
+                                Nothing yet!
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+        	</table>
+    	</div>
+    </div>
+    <br>
+    <br>
+    <a href="/" style="color: #343a40; vertical-align: baseline; text-decoration: none">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        <span class="align-middle bold">Back</span>
+    </a>
+{% endblock %}

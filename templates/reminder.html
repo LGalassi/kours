@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Password reminder
+{% endblock %}
+
+{% block main %}
+    <h3 class="bold">Your password reminder</h3>
+    <div class="center-form">
+        <br>
+        <p>{{ reminder }}</p>
+        <br>
+        <a href="/login">Return to login</a>
+    </div>
+{% endblock %}
