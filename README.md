@@ -1,4 +1,6 @@
-# Kours
+<p align="center">
+	<img src="static/logo-dark.png"/>
+</p>
 
 Kours is a web application made as the final project for CS50x 2020 that allows you to organize and manage all your courses.
 
@@ -33,4 +35,4 @@ After you create an account and log in you'll be redirected to the page where yo
 
 <br>
 
-###### This was Kours.
+##### This was Kours.
